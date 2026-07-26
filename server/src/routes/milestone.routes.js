@@ -8,7 +8,10 @@ import {
   createMilestone,
   updateMilestone,
   deleteMilestone,
+  updateMilestoneImage,
+  deleteMilestoneImage,
 } from "../controllers/milestone.controller.js";
+import { uploadMilestoneImage } from "../middleware/upload.middleware.js";
 
 const router = Router();
 
@@ -21,4 +24,12 @@ router.post("/", authenticate, createMilestone);
 router.patch("/:id", authenticate, updateMilestone);
 router.delete("/:id", authenticate, deleteMilestone);
 
+router.patch(
+  "/:id/image",
+  authenticate,
+  uploadMilestoneImage.single("file"),
+  updateMilestoneImage,
+);
+
+router.delete("/:id/image", authenticate, deleteMilestoneImage);
 export default router;

@@ -9,7 +9,6 @@ import errorHandler from "./middleware/error.middleware.js";
 import authRoutes from "./routes/auth.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
 import projectRoutes from "./routes/project.routes.js";
-import uploudRoutes from "./routes/upload.routes.js";
 import milestoneRoutes from "./routes/milestone.routes.js";
 
 const app = express();
@@ -32,7 +31,7 @@ app.get("/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/projects", projectRoutes);
-app.use("/api/upload", uploudRoutes);
+
 app.use("/api/milestones", milestoneRoutes);
 
 app.use((req, res) => {

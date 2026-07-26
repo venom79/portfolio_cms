@@ -73,10 +73,43 @@ const deleteMilestone = async (req, res, next) => {
   }
 };
 
+const updateMilestoneImage = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const milestone = await milestoneService.updateMilestoneImage(id, req.file);
+
+    res.status(200).json({
+      success: true,
+      message: "Milestone image updated successfully",
+      data: milestone,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteMilestoneImage = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    await milestoneService.deleteMilestoneImage(id);
+
+    res.status(200).json({
+      success: true,
+      message: "Milestone image deleted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export {
   getMilestones,
   getMilestoneById,
   createMilestone,
   updateMilestone,
   deleteMilestone,
+  updateMilestoneImage,
+  deleteMilestoneImage,
 };
