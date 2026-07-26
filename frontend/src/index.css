@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: #1c1710;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(200, 134, 10, 0.05), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(200, 134, 10, 0.04), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: #c8860a;
+    color: #1c1710;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #1c1710; }
+  ::-webkit-scrollbar-thumb { background: #3a2f22; border: 1px solid #c8860a44; }
+  ::-webkit-scrollbar-thumb:hover { background: #8a5f08; }
+}
+
+@layer components {
+  .stencil-label {
+    @apply font-display tracking-wide3 text-amber-bright text-sm uppercase;
+  }
+  .field-divider {
+    @apply border-t border-dashed border-canvas-dim/40;
+  }
+  .stamp-text {
+    @apply font-stamp text-canvas-dim;
+  }
+}
